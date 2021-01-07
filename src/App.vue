@@ -1,5 +1,4 @@
 <template>
-        <!-- :class="{ 'item-checked': !isChecked }" -->
   <main>
     <div class="todo-app">
       <h1 class="heading-for-new-todos">Предстоящие задачи</h1>
