@@ -3,7 +3,7 @@
     <label class="chexkbox">
       <input class="checkbox" type="checkbox" @click="this.$emit('thisTodoIsChecked', itemTodo.id)">
       <span class="fake"></span>
-    </label>
+    </label>  
     <div class="coloumn" v-bind:title="message" @click="this.$emit('changetodo', itemTodo.id)">
       <h4>{{ itemTodo.text }}</h4>
       <p>{{  itemTodo.description }}</p>
@@ -39,6 +39,7 @@ export default {
   border: 1px solid black;
   position: relative;
   border-radius: 100%;
+  cursor: pointer;
 }
 .fake::before {
   content: '';

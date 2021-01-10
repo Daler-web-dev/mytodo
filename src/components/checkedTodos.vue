@@ -1,7 +1,7 @@
 <template>
   <div class="todo-item">
     <label class="chexkbox">
-      <input class="checkbox" type="checkbox" checked @click="this.$emit('thisTodoIsChecked', itemTodo.id)">
+      <input class="checkbox" type="checkbox" checked @click="this.$emit('thisTodosback', itemTodo.id)">
       <span class="fake"></span>
     </label>
     <div class="coloumn">

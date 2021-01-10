@@ -3,6 +3,7 @@
     <div class="todo-app">
       <h1 class="heading-for-new-todos">Предстоящие задачи</h1>
       <div class="new-todos">
+        <span class="tell-me" v-if="todos.length == 0">У вас нет предстоящих заданий</span>
         <itemOftodods class="todo-item"
           v-for="item of todos"
           :key="item.id"
@@ -17,6 +18,7 @@
           v-for="checkItem of checkedTodos"
           :key="checkItem.id"
           v-bind:itemTodo="checkItem"
+          @thisTodosback="thisTodosback"
         />      
       </div>
       <div class="add-todo-form" :class="{ 'open-form-option': !openOption, 'red-border': redBorderOn}">
@@ -37,7 +39,8 @@
       </div>  
     </div>
     <div class="about-todos"> 
-      <p>Доброе утро <span class="name">Далер</span>, у вас <span class="todos-length">{{ todos.length }} новые задачи</span><br> и <span class="checkedTodos-length">{{ checkedTodos.length }} выполненые задачи</span></p>
+      <p>Доброе утро <span class="name">Далер</span>, у вас <span class="todos-length" v-if="todos.length > 0">{{ todos.length }} новые задачи</span>
+      <span class="todos-length" v-if="todos.length == 0">нет новых задач</span><br> и <span class="checkedTodos-length">{{ checkedTodos.length }} выполненые задачи</span></p>
     </div>
     <div class="change-modal-first" :class="{ 'hidden-change-modal': hiddenChangeModal, 'change-modal': !hiddenChangeModal  }">
       <h3>Изменить задачу</h3>
@@ -67,6 +70,7 @@ export default {
       openOption: false,
       hiddenChangeModal: false,
       redBorderOn: false,
+      youHaveNot: false,
       changeHeading: '',
       changeDex: '',
       changeDeadline: '',
@@ -99,7 +103,8 @@ export default {
   },
   methods: {
     addfunctinon() {
-      if(this.headingadd.length || this.descriptadd.length >= 2) {
+      if(this.headingadd.length || this.descriptadd.length >= 2 && this.hiddenChangeModal == true) {
+        // this.hiddenChangeModal = false
         this.todos.push({
           id: Math.random(),
           text: this.headingadd,
@@ -112,6 +117,7 @@ export default {
         this.descriptadd = '',
         this.deadline = ''
       } else {
+        this.hiddenChangeModal = false
         this.redBorderOn = true
         setTimeout(() => {
           this.redBorderOn = false
@@ -123,8 +129,13 @@ export default {
       this.todos.splice(this.todos.indexOf(a), 1)
       this.checkedTodos.push(a)
     },
+    thisTodosback(data) {
+      let d = this.checkedTodos.filter(item => item.id == data)[0]
+      this.checkedTodos.splice(this.checkedTodos.indexOf(d), 1)
+      this.todos.push(d)
+    },
     changetodo(data) {
-      this.hiddenChangeModal = !this.hiddenChangeModal
+      this.hiddenChangeModal = true
       
       let b = this.todos.filter(item => item.id == data)[0]
       this.changeHeading = b 
