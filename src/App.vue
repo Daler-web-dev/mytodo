@@ -169,4 +169,5 @@ export default {
 
 <style>
   @import '../public/css/style.css';
+  @import '../public/css/fonts.css';
 </style>
