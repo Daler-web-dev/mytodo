@@ -82,7 +82,7 @@ export default {
       todos: [
         {
           id: Math.random(),
-          text: 'Селать техническое задание',
+          text: 'Позвонить Илону и заказать место на Марсе уже наконец',
           description: 'отправить заказ Цукербергу',
           time: new Date().toLocaleTimeString(),
           deadline: 12,

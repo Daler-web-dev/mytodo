@@ -6,7 +6,6 @@
     </label>  
     <div class="coloumn" v-bind:title="message" @click="this.$emit('changetodo', itemTodo.id)">
       <h4>{{ itemTodo.text }}</h4>
-      <p>{{  itemTodo.description }}</p>
       <i class="time">{{ itemTodo.time }}</i> 
     </div>
     <!-- <button class="delete-btn" @click="this.$emit('deleteThisTodo', itemTodo.id)">X</button> -->

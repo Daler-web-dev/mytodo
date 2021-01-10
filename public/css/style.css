@@ -19,7 +19,7 @@ main .heading-for-new-todos {
   margin-bottom: 24px;
   margin-top: 19px;
   font-weight: 200;
-  font-size: 23px;
+  font-size: 24px;
 }
 main .new-todos span.tell-me {
   display: flex;
@@ -44,7 +44,10 @@ main .todo-app {
   z-index: 1;
 }
 .todo-item .coloumn h4{
-  font-size: 24px;
+  font-size: 18px;
+  font-weight: 600;
+  max-height: 39px;
+  overflow: hidden;
 }
 .todo-item .coloumn {
   display: flex;
@@ -76,6 +79,7 @@ main .todo-app {
   border-radius: 12px;
   padding: 0px 4px;
   color: white;
+  margin-top: 11px;
 }
 
 .item-checked {
@@ -195,7 +199,7 @@ main .todo-app .new-todos::-webkit-scrollbar-thumb:hover {
   position: absolute;
   top: 80px;
   left: 136px;
-  font-size: 28px;
+  font-size: 24px;
   font-weight: 500;
 }
 .about-todos span.todos-length {
